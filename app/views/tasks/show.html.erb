@@ -1,0 +1,68 @@
+<main class="main">
+  <div class="inner">
+    <div class="task__wrapper">
+      <p class="task__hedding">
+        <%= @task.title %>
+      </p>
+      <%= link_to "タスク実施者 #{@task.user.name}", user_path(@task.user), class: :task__user %>
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if current_user == @task.user%>
+        <div class="task__manage">
+          <%= link_to "編集する", edit_task_path(@task), class: :task__btn %>
+          <%= link_to "削除する", task_path(@task), method: :delete, class: :task__btn %>
+        </div>
+      <% end %>
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <div class="task__body">
+        <div class="task__detail">
+          <p class="detail__title">タスク詳細</p>
+          <p class="detail__message">
+            <%= @task.matter %>
+          </p>
+        </div>
+        <div class="task__detail">
+          <p class="detail__title">完了予定日</p>
+          <p class="detail__message">
+            <%= @task.scheduled_date %>
+          </p>
+        </div>
+
+        <div class="task__detail">
+          <p class="detail__title">ステータス</p>
+          <p class="detail__message">
+            <%= @task.status.name %>
+          </p>
+        </div>
+        <div class="task__detail">
+          <p class="detail__title">進捗</p>
+          <p class="detail__message">
+            <%= @task.progress.name %>
+          </p>
+        </div>
+        <div class="task__detail">
+          <p class="detail__title">フラグ</p>
+          <p class="detail__message">
+            <%= @task.flag.name %>
+          </p>
+        </div>
+        <div class="task__detail">
+          <p class="detail__title">補足</p>
+          <p class="detail__message">
+            <%= @task.supplement %>
+          </p>
+        </div>
+        <div class="task__detail">
+          <p class="detail__title">完了日</p>
+          <p class="detail__message">
+            <%= @task.completion_date %>
+          </p>
+        </div>
+        <% if @task.completion_date.present? %>
+          <div class='mission-complete-show'>
+            <span>Mission Complete!!</span>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

@@ -10,6 +10,35 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="inner">
+        <div class="nav">
+          <div class="nav__left">
+           <%= link_to "Task-Share", root_path, class: :logo %> 
+          </div>
+          <%# ログインしているときは以下を表示するようにしましょう %>
+          <% if user_signed_in? %>
+            <div class="nav__right"> 
+               <%= link_to "マイページ", user_path(current_user), class: :user_name %>
+               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__logout %>
+               <%= link_to "新規タスク登録", new_task_path, class: :nav__btn %>
+              </div>
+           <% end %> 
+          <%#  ログインしているときは上記を表示するようにしましょう %>
+          <%# ログインしていないときは以下を表示するようにしましょう %>
+          <% unless user_signed_in? %>
+            <div class="nav__right">
+              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+            </div>
+          <% end %>
+          <%# // ログインしていないときは上記を表示するようにしましょう%>
+        </div>
+      </div>
+    </header>
     <%= yield %>
+    <footer class="footer">
+      <p class="copyright">Copyright © Task-Share-34500 All rights reserved.</p>
+    </footer>
   </body>
 </html>

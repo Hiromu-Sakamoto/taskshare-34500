@@ -1,0 +1,14 @@
+.mission-complete {
+  position: absolute;
+  top: 60%;
+  width: 20%;
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.493);
+  transform: skewY(-10deg);
+}
+
+.mission-complete>span {
+  color: #FFF;
+  font-size: 25px;
+  font: bold;
+}

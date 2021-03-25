@@ -1,2 +1,15 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<main class="main">
+  <div class="inner">
+      <%# ログインしているときは以下を表示する %>
+     <% if user_signed_in? %> 
+      <div class="greeting">
+        <%= link_to "#{current_user.name}さんのタスク", user_path(current_user), class: :greeting__link%> 
+      </div>
+     <% end %> 
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+      <%# 投稿機能実装後、部分テンプレートでタスク投稿一覧を表示する %>
+     <%= render partial: 'task', collection: @tasks %> 
+    </div>
+  </div>
+</main>

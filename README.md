@@ -7,8 +7,8 @@
 | email      | string | null: false |
 | password   | string | null: false |
 | name       | string | null: false |
-| occupation |  text  | null: false |
-| position   |  text  | null: false |
+| occupation | text   | null: false |
+| position   | text   | null: false |
 
 ### Association
 
@@ -22,7 +22,7 @@
 | matter           | text       | null: false                    |
 | status_id        | integer    | null: false                    |
 | scheduled_date   | date       | null: false                    |
-| completion_date  | date       | null: false                    |
+| completion_date  | date       |                                |
 | progress_id      | integer    | null: false                    |
 | flag_id          | integer    | null: false                    |
 | supplement       | text       |                                |
