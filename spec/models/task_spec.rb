@@ -34,7 +34,7 @@ RSpec.describe Task, type: :model do
       it 'scheduled_dateが空では登録できない' do
         @task.scheduled_date = ''
         @task.valid?
-        expect(@task.errors.full_messages).to include("Scheduled date can't be blank")
+        expect(@task.errors.full_messages).to include("Scheduled date can't be blankz")
       end
       it 'status_idが0では登録できない' do
         @task.status_id = 0
